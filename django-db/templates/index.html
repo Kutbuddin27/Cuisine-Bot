@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Display</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('../static/img/street-chinese-food-with-copy-space_23-2148242502.avif');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #fff;
+        }
+
+        th {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Data Display</h1>
+        <table border="1">
+            <tr>
+                <th>Order ID</th>
+                <th>Name</th>
+                <th>Phone Number</th>
+                <th>Address</th>
+                <th>Orders</th>
+                <th>Price</th>
+                <th>Time</th>
+            </tr>
+            {% for row in data %}
+            <tr>
+                <td>{{ row.orderId }}</td>
+                <td>{{ row.name }}</td>
+                <td>{{ row.phone_number }}</td>
+                <td>{{ row.address }}</td>
+                <td>{{ row.ORDERS }}</td>
+                <td>{{ row.price }}</td>
+                <td>{{ row.TimeStamp }}</td>
+                <td>
+                    <form action="/delete_row" method="post">
+                        <input type="hidden" name="orderId" value="{{ row.orderId }}">
+                        <button type="submit">❌</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+
+</html>

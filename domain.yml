@@ -1,0 +1,127 @@
+version: '3.1'
+intents:
+- affirm
+- deny
+- goodbye
+- greet
+- information_Name
+- information_Number
+- information_Order
+- information_Quantity
+- information_address
+- information_dosa
+- information_menu
+- information_status
+- menu_type
+- new_order
+- ok_intent
+entities:
+- Food
+- Name
+- PhoneNumber
+- Quantity
+- Address
+- cuisine
+slots:
+  Food:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: Food
+  Name:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: Name
+  PhoneNumber:
+    type: list
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: PhoneNumber
+  Quantity:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: Quantity
+  Address:
+    type: list
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: Address
+forms:
+  information_food_form:
+    required_slots:
+    - Food
+    - Quantity
+  information_form:
+    required_slots:
+    - Name
+    - PhoneNumber
+    - Address
+responses:
+  utter_greet:
+  - text: Hey! How are you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: Bye
+  utter_affirm:
+  - text: feel free to ask.If you want to order something else then type 'new order' or to check status type 'status orderId'
+  utter_deny:
+  - text: I understand, In-case if you want something just let me know i am ready to help you
+  utter_ask_Food:
+  - text: Hey...What would you like to order?
+  utter_ask_Name:
+  - text: Please mention your name?
+  utter_ask_order_details:
+  - text: Okay! Do you want some more? if yes type yes otherwise type no or type new-order for a new order
+  utter_ask_PhoneNumber:
+  - text: Enter your number. please mention in the format 098-123-4567 or +91-9645385652
+  utter_ask_dosa_type:
+  - text: Ohk can you specify which type of dosa would you like plain-dosa or masala-dosa?
+  utter_ask_Quantity:
+  - text: How many would you like to order?(please enter in numbers)
+  utter_menu_type:
+  - text: Hey! Which type of cuisine do you like to have?
+    buttons:
+    - title: 🍛South Indian
+      payload: SouthIndian
+    - title: 🍔Fast Food
+      payload: FastFood
+  utter_ask_Address:
+  - text: Where should we deliver it?
+  utter_default:
+  - text: I'm sorry I didn't understand what you meant by that. Can you please rephrase or provide more context?
+  - text: Can you provide more details?
+  utter_ask_menu:
+  - text: |-
+      South-Indian:-
+       Plain_dosa - 80/- 
+      Masala_dosa - 100/-
+       idli - 15/-
+       Vada - 20/-
+       utappam - 60/-
+
+       Fast-Food:- Pizza - 110/-
+       Burger - 70/-
+       Pasta - 70/-
+       Sandwitch - 80/-
+actions:
+- utter_ask_order_details
+- action_say_data
+- utter_menu_type
+- utter_affirm
+- action_show_menu
+- action_check_status
+- utter_ask_Name
+- utter_ask_Quantity
+- utter_ask_Number
+- utter_ask_dosa_type
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

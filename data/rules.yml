@@ -1,0 +1,93 @@
+version: "3.1"
+
+rules:
+
+- rule: activate form loop
+  steps:
+  - intent: greet
+  - action: information_food_form
+  - active_loop: information_food_form
+
+- rule: submit information_food_form
+  condition:
+  - active_loop: information_food_form
+  steps:
+  - action: information_food_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_ask_order_details
+
+- rule: Interrupt the form by choosing plain_dosa or masala_dosa 
+  condition:
+  - active_loop: information_food_form
+  steps:
+  - intent: information_dosa
+  - action: utter_ask_dosa_type
+  # back to the conversation
+  - action: information_food_form
+  - active_loop: information_food_form
+
+- rule: Start a new form conversation on new order after form completion
+  condition:
+  - active_loop: null
+  steps:
+  - intent: new_order
+  - action: information_food_form
+  - active_loop: information_food_form         
+
+- rule: checking status
+  steps:
+  - intent: information_status
+  - action: action_check_status
+
+- rule: Interrupt the form by asking yes
+  condition:
+  - active_loop: null
+  steps:
+  - intent: ok_intent
+  # back to the conversation
+  - action: action_say_data
+  - action: information_food_form
+  - active_loop: information_food_form
+
+- rule: Interrupt the form by telling no
+  condition:
+  - active_loop: null
+  steps:
+  - intent: deny
+  # back to the conversation
+  - action: information_form
+  - active_loop: information_form
+
+- rule: submit information_form
+  condition:
+  - active_loop: information_form
+  steps:
+  - action: information_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_say_data
+  # - action: action_restart
+
+- rule: affirm rule i don't know but it doesn't support stories
+  steps:
+  - intent: affirm
+  - action: utter_affirm
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+# - rule: menu showing
+#   steps:
+#   - intent: information_menu
+#   - action: utter_menu_type
+#   - intent: menu_type
+#   - action: action_show_menu 
+
+# - rule: ask user to rephrase when they send out of topic question
+#   steps:
+#   - intent: nul_fallback
+#   - action: action_default_fallback

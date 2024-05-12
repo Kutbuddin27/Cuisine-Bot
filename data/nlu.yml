@@ -1,0 +1,178 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - hii
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+- intent: affirm
+  examples: |
+    - that sounds good
+    - correct
+    - ok
+    - Ohk
+    - objection killed
+    - good
+- intent: ok_intent
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+- intent: information_Order
+  examples: |
+    - I want to order a [burger](food) and a [pizza](Food)
+    - Can I get [pizza](food) and [burger](Food)?
+    - Order [pasta](Food)
+    - [plain_dosa](Food)
+    - [masala_dosa](Food)
+    - I want to order a [plain-dosa](Food)
+    - a [Masala-dosa](Food)
+    - [masala-dosa](Food)
+    - Can I get [idli](Food)?
+    - Order [sandwitch](Food)
+    - an [Uttapam](Food)
+    - [pizza](Food)
+    - [3](Quantity) [masala_dosa](Food)
+    - [1](Quantity) [Pizza](Food)
+    - [8](Quantity) [idli](Food)
+    - i need [12](Quantity) [Vada](Food)
+    - i want [5](Quantity) [burger](Food)
+    - [2](Quantity) [pizza](Food)
+    - [plain-dosa](Food)
+    - [2](Quantity) [sandwitch](Food)
+    - [3](Quantity) [Vada](Food)
+- intent: information_Name
+  examples: |
+    - my name is [kutbuddin](Name)
+    - [pal](Name)
+    - [anushka](Name)
+    - [ali](Name)
+    - [salim](Name)
+    - [kutbuddin](Name)
+    - [bhavik](Name)
+    - [maksud](Name)
+    - [karina](Name)
+    - [nachiket](Name)
+    - [perin](Name)
+    - [Abhishek](Name)
+    - [taher](Name)
+    - [ramesh](Name)
+    - [suresh](Name)
+    - [Albert](Name)
+    - [biden](Name)
+    - [elom](Name)
+    - [musk](Name)
+    - [johnson](Name)
+    - [kkjnjk](Name)
+    - [kutub](Name)
+    - [raj](Name)
+- intent: information_Quantity
+  examples: |
+    - [2](Quantity)
+    - [14](Quantity)
+    - [8](Quantity)
+    - [5](Quantity)
+    - [7](Quantity)
+- intent: information_Number
+  examples: |
+    - my number is [1234567890](PhoneNumber)
+    - call me at [1234567890](PhoneNumber)
+    - my phone number is [+91-1234567890](PhoneNumber)
+    - [+1-9723427728](PhoneNumber)
+    - [123-456-7890](PhoneNumber)
+    - [0123456789](PhoneNumber)
+    - [982-546-4578](PhoneNumber)
+    - [343-543-6536](PhoneNumber)
+    - [998-323-3232](PhoneNumber)
+- intent: information_menu
+  examples: |
+    - What's in the menu?
+    - Can you show me the options?
+    - List the menu items.
+    - show me menu
+    - menu
+    - mnu
+- intent: information_dosa
+  examples: |
+    - dosa
+    - i want dosa
+    - [2](Quantity) dosa
+    - [5](Quantity) dosa
+- intent: new_order
+  examples: |
+    - Make a new order for me.
+    - new order
+    - new order please
+    - i want to order again
+    - order again
+    - want to order more
+- intent: information_address
+  examples: |
+    - My address is [123 Main Street, Cityville](Address)
+    - I live at [456 Park Avenue, Townsville](Address)
+    - Address: [789 Oak Lane, Villageton](Address)
+    - [1001 Elm Street, Suburbia](Address)
+    - [22B Baker Street, London](Address)
+    - [42 Wallaby Way, Sydney](Address)
+    - [221B Baker Street, London](Address)
+    - [1234 Pine Street, Greenvale](Address)
+    - [567 Maple Avenue, Riverside](Address)
+    - [901 Cedar Lane, Hilltop](Address)
+    - [B-14, Sivanta Villa, Motera, Ahemedabad](Address)
+    - [A-102, Shree Hari Residency, Chandkheda, Ahemedabad](Address)
+    - [6, Prashanti, North West Avenue, Santacruz, Mumbai](Address)
+    - [59/64 Nr Kasba Ganapat, Kasba Peth, Pune](Address)
+    - [39-A, Rajlaxmi Complex, Old Padra Road,Vadodara](Address)
+    - [123/1b North Kamalanagar, Kushaiguda, Hyderabad](Address)
+    - [Unit No 13 Mahalaxmi Indl.estate, 2nd Flr D C Rd Gandhi Nagar, Delisle Road, Mumbai](Address)
+    - [3rd Flr, Prabhat Apartments, Hanuman Road, Vile Parle(e), Mumbai](Address)
+    - [201-210, 2nd Floor, Mittal Towers,c Wing, M G Road, Banglore](Address)
+    - [Jai Moti Building, Hirachand Desai Road, Opp. New Post Office, Ghatkopar (west)](Address)
+- intent: information_status
+  examples: |
+    - check the status of order 1234
+    - status of my order 5678
+    - what's the status of order 9999
+    - can you check my order status with ID 4321
+    - show me the status of order 7890
+    - tell me the status of my order 1111
+    - check status 6479
+- intent: menu_type
+  examples: |
+    - [South Indian](cuisine)
+    - [Fast Food](cuisine)
+    - [South-indian](cuisine)
+    - [Fast-Food](cuisine)

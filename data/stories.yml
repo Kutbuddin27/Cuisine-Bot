@@ -1,0 +1,105 @@
+version: "3.1"
+
+stories:
+  
+- story: action to show menu when the user ask for menu
+  steps:
+  - intent: information_menu
+  - action: utter_menu_type
+  - intent: menu_type
+  - action: action_show_menu
+
+# - story: interactive_story_1
+#   steps:
+#   - intent: greet
+#   - action: information_food_form
+#   - active_loop: information_food_form
+#   - slot_was_set:
+#     - requested_slot: Food
+#   - intent: information_menu
+#   - action: utter_menu_type
+#   - intent: menu_type
+#     entities:
+#     - cuisine: South-indian
+#   - action: action_show_menu
+#   - intent: information_Order
+#     entities:
+#     - Quantity: '2'
+#     - Food: pizza
+#   - slot_was_set:
+#     - Food: pizza
+#   - slot_was_set:
+#     - Quantity: '2'
+#   - action: information_food_form
+#   - slot_was_set:
+#     - requested_slot: null
+#   - active_loop: null
+#   - action: utter_ask_order_details
+#   - intent: ok_intent
+#   - action: action_say_data
+#   - slot_was_set:
+#     - Food: null
+#   - slot_was_set:
+#     - Quantity: null
+#   - slot_was_set:
+#     - requested_slot: null
+#   - action: information_food_form
+#   - active_loop: information_food_form
+#   - slot_was_set:
+#     - requested_slot: Food
+#   - intent: information_Order
+#     entities:
+#     - Quantity: '3'
+#     - Food: burger
+#   - slot_was_set:
+#     - Food: burger
+#   - slot_was_set:
+#     - Quantity: '3'
+#   - action: information_food_form
+#   - slot_was_set:
+#     - requested_slot: null
+#   - active_loop: null
+#   - action: utter_ask_order_details
+#   - intent: deny
+#   - action: information_form
+#   - active_loop: information_form
+#   - slot_was_set:
+#     - requested_slot: Name
+#   - intent: information_Name
+#     entities:
+#     - Name: kutub
+#   - slot_was_set:
+#     - Name: kutub
+#   - action: information_form
+#   - slot_was_set:
+#     - requested_slot: PhoneNumber
+#   - intent: information_Number
+#     entities:
+#     - PhoneNumber: 998-323-3232
+#   - slot_was_set:
+#     - PhoneNumber:
+#       - 998-323-3232
+#   - action: information_form
+#   - slot_was_set:
+#     - requested_slot: Address
+#   - intent: information_address
+#     entities:
+#     - Address: 22B Baker Street
+#     - Address: London
+#   - slot_was_set:
+#     - Address:
+#       - 22B Baker Street
+#       - London
+#   - action: information_form
+#   - slot_was_set:
+#     - requested_slot: null
+#   - active_loop: null
+#   - action: action_say_data
+#   - slot_was_set:
+#     - requested_slot: null
+#   - intent: information_status
+#   - action: action_check_status
+#   - intent: affirm
+#   - action: utter_affirm
+
+# 
